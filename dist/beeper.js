@@ -7,23 +7,23 @@ export function createBeeper() {
     const ctx = new AudioContext();
     // === methods ===
     function destroy() {
-        ctx.close();
+        return ctx.close();
     }
     function beep({ frequency = 440 } = {}) {
         const currentTime = ctx.currentTime;
         const osc = ctx.createOscillator();
-        osc.type = "sine";
+        osc.type = 'sine';
         osc.frequency.value = frequency;
         const gain = ctx.createGain();
         gain.connect(ctx.destination);
         gain.gain.setValueAtTime(gain.gain.value, currentTime);
         gain.gain.exponentialRampToValueAtTime(RAMP_VALUE, currentTime + RAMP_DURATION);
         osc.connect(gain);
-        osc.onended = function () {
+        osc.onended = () => {
             gain.disconnect(ctx.destination);
             osc.disconnect(gain);
         };
-        console.log("beep!");
+        console.log('beep!');
         osc.start(currentTime);
         osc.stop(currentTime + RAMP_DURATION);
     }
@@ -31,6 +31,6 @@ export function createBeeper() {
     return {
         destroy,
         beepHigh: () => beep({ frequency: FREQ_HIGH }),
-        beepLow: () => beep({ frequency: FREQ_LOW })
+        beepLow: () => beep({ frequency: FREQ_LOW }),
     };
 }

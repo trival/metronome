@@ -1,12 +1,12 @@
 export function createPlayer(beeper, pattern) {
     const beats = pattern.map(b => ({
-        play: b.beat === "H" ? beeper.beepHigh : beeper.beepLow,
-        time: (60 / b.bpm) * 1000
+        play: b.type === 'H' ? beeper.beepHigh : beeper.beepLow,
+        time: (60 / b.bpm) * 1000,
     }));
     const state = {
         currentBeat: 0,
         playing: false,
-        looping: false
+        looping: false,
     };
     function play() {
         const beat = beats[state.currentBeat];
@@ -41,6 +41,6 @@ export function createPlayer(beeper, pattern) {
         setBeat,
         reset,
         setLooping,
-        state
+        state,
     };
 }

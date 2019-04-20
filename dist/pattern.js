@@ -1,7 +1,7 @@
-export function beat(bpm, beat = "L") {
+export function beat(bpm, type = 'L') {
     return {
-        beat,
-        bpm
+        type,
+        bpm,
     };
 }
 export function repeat(times, pattern) {
@@ -11,28 +11,28 @@ export function repeat(times, pattern) {
     }
     return p;
 }
-export function sequence(length, bpm) {
-    const p = repeat(length - 1, beat(bpm));
-    p.unshift(beat(bpm, "H"));
+export function sequence(beats, bpm) {
+    const p = repeat(beats - 1, beat(bpm));
+    p.unshift(beat(bpm, 'H'));
     return p;
 }
 export function subdivide(pattern, n = 2) {
     return pattern.reduce((p, b) => {
-        return p.concat(repeat(n, beat(b.bpm * n, b.beat)));
+        return p.concat(repeat(n, beat(b.bpm * n, b.type)));
     }, []);
 }
-export function introPattern(length, bpm, subdivideCount = 2) {
-    const b = beat(bpm, "H");
-    return repeat(Math.max(length - 2, 0), b)
+export function introPattern(beats, bpm, subdivideCount = 2) {
+    const b = beat(bpm, 'H');
+    return repeat(Math.max(beats - 2, 0), b)
         .concat(subdivide([b], subdivideCount))
         .concat([b]);
 }
 export function trainingSection(beats, bpm, repetitions, subdivideCount = 2) {
     return introPattern(beats, bpm, subdivideCount)
         .concat(repeat(repetitions, sequence(beats, bpm)))
-        .concat(beat(bpm / beats, "H"));
+        .concat(beat(bpm / beats, 'H'));
 }
-export function escalationTrainingSequenses(beats, startBpm, bpmStep, maxBpm, repetitions, subdivideCount = 2) {
+export function acceleratingTrainingSequenses(beats, startBpm, bpmStep, maxBpm, repetitions, subdivideCount = 2) {
     let p = [];
     for (; startBpm <= maxBpm; startBpm += bpmStep) {
         p = p.concat(trainingSection(beats, startBpm, repetitions, subdivideCount));

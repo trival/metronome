@@ -3,7 +3,7 @@ import { Pattern } from './pattern.js'
 
 export function createPlayer(beeper: Beeper, pattern: Pattern) {
 	const beats = pattern.map(b => ({
-		play: b.beat === 'H' ? beeper.beepHigh : beeper.beepLow,
+		play: b.type === 'H' ? beeper.beepHigh : beeper.beepLow,
 		time: (60 / b.bpm) * 1000,
 	}))
 
