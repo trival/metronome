@@ -1,6 +1,6 @@
 import { createBeeper } from './beeper.js'
-import { createPlayer } from './player.js'
 import * as P from './pattern.js'
+import { createPlayer } from './player.js'
 
 export function createMetronome() {
 	const beeper = createBeeper()

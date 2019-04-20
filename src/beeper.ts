@@ -12,7 +12,7 @@ export function createBeeper() {
 	// === methods ===
 
 	function destroy() {
-		ctx.close()
+		return ctx.close()
 	}
 
 	function beep({ frequency = 440 } = {}) {
@@ -32,7 +32,7 @@ export function createBeeper() {
 		)
 
 		osc.connect(gain)
-		osc.onended = function() {
+		osc.onended = () => {
 			gain.disconnect(ctx.destination)
 			osc.disconnect(gain)
 		}
