@@ -53,3 +53,5 @@ export function createPlayer(beeper: Beeper, pattern: Pattern) {
 		state,
 	}
 }
+
+export type Player = ReturnType<typeof createPlayer>

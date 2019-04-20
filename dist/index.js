@@ -1,2 +1,5 @@
 import { createMetronome } from './metronome.js';
-window.metronome = createMetronome();
+import { createUI } from './ui.js';
+const metronome = createMetronome();
+window.metronome = metronome;
+createUI(metronome);

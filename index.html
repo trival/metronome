@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Metronome</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Metronome</title>
-</head>
+	<body>
+		<h1>Metronome</h1>
+		<section class="input">
+			<form name="controls">
+				<div class="form-field">
+					<label
+						>Single speed:
+						<input type="radio" name="accelerating" value="false" checked />
+					</label>
+					<label
+						>Accelerating Speeds:
+						<input type="radio" name="accelerating" value="true" />
+					</label>
+				</div>
+				<div class="form-field">
+					<label
+						>Looping: <input type="checkbox" name="looping" checked
+					/></label>
+				</div>
+				<fieldset>
+					<legend>Speed</legend>
+					<div class="form-field">
+						<label>Beats: <input type="number" name="beats" value="4"/></label>
+					</div>
+					<div class="form-field">
+						<label>BPM: <input type="number" name="bpm" value="100"/></label>
+					</div>
+					<div class="form-field accelerating">
+						<label
+							>BPM Step: <input type="number" name="bpm-step" value="10"
+						/></label>
+					</div>
+					<div class="form-field accelerating">
+						<label
+							>Max BPM: <input type="number" name="max-bpm" value="160"
+						/></label>
+					</div>
+					<div class="form-field accelerating">
+						<label
+							>Repetitions: <input type="number" name="repetitions" value="8"
+						/></label>
+					</div>
+				</fieldset>
+			</form>
+		</section>
+		<section class="player">
+			<header><h2>Player</h2></header>
+			<div class="btns">
+				<button id="play">Play</button>
+				<button id="stop">Stop</button>
+				<button id="reset">Reset</button>
+			</div>
+			<div class="display">
+				<span id="display-time"></span>
+				<span id="display-total-time"></span>
+			</div>
+			<div id="timeline"></div>
+		</section>
 
-<body>
-	<h1>Metronome</h1>
-	<script src="dist/index.js" type="module"></script>
-</body>
-
+		<script src="dist/index.js" type="module"></script>
+	</body>
 </html>
