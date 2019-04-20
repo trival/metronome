@@ -6,5 +6,8 @@ export function createMetronome() {
     function patternPlayer(p) {
         return createPlayer(beeper, p);
     }
-    return { patternPlayer, beeper, P };
+    function destroy() {
+        return beeper.destroy();
+    }
+    return { patternPlayer, beeper, P, destroy };
 }

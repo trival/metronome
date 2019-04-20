@@ -39,7 +39,7 @@ export function introPattern(beats: number, bpm: number, subdivideCount = 2) {
 	const b = beat(bpm, 'H')
 	return repeat(Math.max(beats - 2, 0), b)
 		.concat(subdivide([b], subdivideCount))
-		.concat([b])
+		.concat(b)
 }
 
 export function trainingSection(

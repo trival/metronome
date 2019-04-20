@@ -9,7 +9,11 @@ export function createMetronome() {
 		return createPlayer(beeper, p)
 	}
 
-	return { patternPlayer, beeper, P }
+	function destroy() {
+		return beeper.destroy()
+	}
+
+	return { patternPlayer, beeper, P, destroy }
 }
 
 export type Metronome = ReturnType<typeof createMetronome>
