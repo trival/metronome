@@ -1,0 +1,20 @@
+{
+  "name": "metronom",
+  "version": "1.0.0",
+  "description": "a programmable metronome",
+  "main": "index.js",
+  "author": "Thomas Gorny",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "typescript": "^3.4.4"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1"
+  }
+}

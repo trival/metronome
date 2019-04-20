@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "outDir": "dist",
+    "lib": ["dom", "esnext"],
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
+}
