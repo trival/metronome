@@ -1,5 +1,4 @@
 import { Metronome } from './metronome.js'
-import { Pattern } from './pattern.js'
 import { Player } from './player.js'
 
 interface Controls extends HTMLFormControlsCollection {

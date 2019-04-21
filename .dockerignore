@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+*.log
+.env
+
+src
+.editorconfig
+.prettierrc
+package.json
+tsconfig.json
+tslint.json
+types.d.ts
+yarn.lock
